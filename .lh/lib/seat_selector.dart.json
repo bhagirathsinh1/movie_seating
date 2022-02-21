@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/seat_selector.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1645441169287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1645441169287,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\r\nimport 'package:movie_seating/chair_list.dart';\r\nimport 'package:movie_seating/seat_info.dart';\r\n\r\nclass SeatSelector extends StatefulWidget {\r\n  const SeatSelector({Key? key}) : super(key: key);\r\n\r\n  @override\r\n  _SeatSelectorState createState() => _SeatSelectorState();\r\n}\r\n\r\nclass _SeatSelectorState extends State<SeatSelector> {\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    Size size = MediaQuery.of(context).size;\r\n    return Expanded(\r\n      child: Stack(\r\n        alignment: Alignment.center,\r\n        children: [\r\n          Container(\r\n            color: Colors.black,\r\n            width: size.width,\r\n          ),\r\n          Positioned(\r\n            top: 48,\r\n            child: Stack(\r\n              alignment: Alignment.topCenter,\r\n              children: [\r\n                Container(\r\n                  height: 40,\r\n                  width: MediaQuery.of(context).size.width * 0.70,\r\n                  decoration: BoxDecoration(\r\n                    borderRadius: BorderRadius.only(\r\n                      topRight: Radius.circular(50.0),\r\n                      topLeft: Radius.circular(50.0),\r\n                    ),\r\n                    gradient: LinearGradient(\r\n                        colors: [Colors.yellow, Colors.transparent],\r\n                        begin: Alignment.topCenter,\r\n                        end: Alignment.bottomCenter,\r\n                        stops: [0, 1]),\r\n                  ),\r\n                ),\r\n                Container(\r\n                  height: 40,\r\n                  width: MediaQuery.of(context).size.width * 0.60,\r\n                  decoration: BoxDecoration(\r\n                    border: Border(\r\n                      top: BorderSide(width: 4.0, color: Colors.white),\r\n                    ),\r\n                  ),\r\n                )\r\n              ],\r\n            ),\r\n          ),\r\n          Positioned(\r\n            bottom: size.height * 0.2,\r\n            child: Container(\r\n              width: size.width * 0.70,\r\n              child: Column(\r\n                children: [\r\n                  ChairList(size: size),\r\n                  SeatInfo(),\r\n                ],\r\n              ),\r\n            ),\r\n          ),\r\n        ],\r\n      ),\r\n    );\r\n  }\r\n}\r\n"
+        }
+    ]
+}

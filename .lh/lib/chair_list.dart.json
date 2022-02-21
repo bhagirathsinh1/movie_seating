@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/chair_list.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1645441169288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1645441169288,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\r\nimport 'package:movie_seating/build_chairs.dart';\r\n\r\nclass ChairList extends StatelessWidget {\r\n  ChairList({\r\n    Key? key,\r\n    required this.size,\r\n  });\r\n\r\n  final Size size;\r\n  final List _chairStatus = [\r\n    [1, 1, 1, 1, 1, 1, 1],\r\n    [1, 1, 1, 1, 3, 1, 1],\r\n    [1, 1, 1, 1, 1, 3, 3],\r\n    [2, 2, 2, 1, 3, 1, 1],\r\n    [1, 1, 1, 1, 1, 1, 1],\r\n    [1, 1, 1, 1, 3, 1, 1],\r\n  ];\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return Container(\r\n      child: Column(\r\n        children: [\r\n          for (int row = 0; row < 6; row++)\r\n            Container(\r\n              margin: EdgeInsets.only(top: row == 2 ? size.height * 0.02 : 0),\r\n              child: Row(\r\n                children: [\r\n                  for (int column = 0; column <= 6; column++)\r\n                    Expanded(\r\n                      child: Container(\r\n                        height: 40,\r\n                        margin: EdgeInsets.all(5.0),\r\n                        child: _chairStatus[row][column] == 1\r\n                            ? BuildChairs.availableChair(row, column)\r\n                            : _chairStatus[row][column] == 2\r\n                                ? BuildChairs.selectedChair(row, column)\r\n                                : BuildChairs.reservedChair(row, column),\r\n                      ),\r\n                    ),\r\n                ],\r\n              ),\r\n            ),\r\n        ],\r\n      ),\r\n    );\r\n  }\r\n}\r\n"
+        }
+    ]
+}
