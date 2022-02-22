@@ -3,11 +3,195 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 46,
             "patches": [
                 {
                     "date": 1645441169287,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1645444262380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n import 'package:movie_seating/chair_list.dart';\r\n import 'package:movie_seating/seat_info.dart';\r\n \r\n class SeatSelector extends StatefulWidget {\r\n-  const SeatSelector({Key? key}) : super(key: key);\r\n-\r\n+  SeatSelector({Key? key, required this.rowvalue}) : super(key: key);\r\n+  final int rowvalue;\r\n   @override\r\n   _SeatSelectorState createState() => _SeatSelectorState();\r\n }\r\n \r\n@@ -58,9 +58,9 @@\n             child: Container(\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n-                  ChairList(size: size),\r\n+                  ChairList(size: size, rowvalue: widget.rowvalue),\r\n                   SeatInfo(),\r\n                 ],\r\n               ),\r\n             ),\r\n"
+                },
+                {
+                    "date": 1645445533318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n             child: Container(\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n-                  ChairList(size: size, rowvalue: widget.rowvalue),\r\n+                  ChairList(size: size, rowvalue: widget.rowvalue - 1),\r\n                   SeatInfo(),\r\n                 ],\r\n               ),\r\n             ),\r\n"
+                },
+                {
+                    "date": 1645445585519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n             child: Container(\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n-                  ChairList(size: size, rowvalue: widget.rowvalue - 1),\r\n+                  ChairList(size: size, rowvalue: widget.rowvalue),\r\n                   SeatInfo(),\r\n                 ],\r\n               ),\r\n             ),\r\n"
+                },
+                {
+                    "date": 1645513370045,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n class _SeatSelectorState extends State<SeatSelector> {\r\n   @override\r\n   Widget build(BuildContext context) {\r\n     Size size = MediaQuery.of(context).size;\r\n-    return Expanded(\r\n+    return Container(\r\n       child: Stack(\r\n         alignment: Alignment.center,\r\n         children: [\r\n           Container(\r\n"
+                },
+                {
+                    "date": 1645514355972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import 'package:movie_seating/seat_info.dart';\r\n \r\n class SeatSelector extends StatefulWidget {\r\n   SeatSelector({Key? key, required this.rowvalue}) : super(key: key);\r\n-  final int rowvalue;\r\n+  int rowvalue = 6;\r\n   @override\r\n   _SeatSelectorState createState() => _SeatSelectorState();\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1645514408218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import 'package:movie_seating/seat_info.dart';\r\n \r\n class SeatSelector extends StatefulWidget {\r\n   SeatSelector({Key? key, required this.rowvalue}) : super(key: key);\r\n-  int rowvalue = 6;\r\n+  final int rowvalue;\r\n   @override\r\n   _SeatSelectorState createState() => _SeatSelectorState();\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1645514932880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,13 @@\n import 'package:movie_seating/chair_list.dart';\r\n import 'package:movie_seating/seat_info.dart';\r\n \r\n class SeatSelector extends StatefulWidget {\r\n-  SeatSelector({Key? key, required this.rowvalue}) : super(key: key);\r\n+  SeatSelector({Key? key, required this.rowvalue, required this.columnvalue})\r\n+      : super(key: key);\r\n   final int rowvalue;\r\n+  final int columnvalue;\r\n+\r\n   @override\r\n   _SeatSelectorState createState() => _SeatSelectorState();\r\n }\r\n \r\n@@ -58,9 +61,12 @@\n             child: Container(\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n-                  ChairList(size: size, rowvalue: widget.rowvalue),\r\n+                  ChairList(\r\n+                      size: size,\r\n+                      rowvalue: widget.rowvalue,\r\n+                      columnvalue: widget.columnvalue),\r\n                   SeatInfo(),\r\n                 ],\r\n               ),\r\n             ),\r\n"
+                },
+                {
+                    "date": 1645515280963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,12 +61,15 @@\n             child: Container(\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n-                  ChairList(\r\n-                      size: size,\r\n-                      rowvalue: widget.rowvalue,\r\n-                      columnvalue: widget.columnvalue),\r\n+                  SingleChildScrollView(\r\n+                    scrollDirection: Axis.vertical,\r\n+                    child: ChairList(\r\n+                        size: size,\r\n+                        rowvalue: widget.rowvalue,\r\n+                        columnvalue: widget.columnvalue),\r\n+                  ),\r\n                   SeatInfo(),\r\n                 ],\r\n               ),\r\n             ),\r\n"
+                },
+                {
+                    "date": 1645515366339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,15 +61,12 @@\n             child: Container(\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n-                  SingleChildScrollView(\r\n-                    scrollDirection: Axis.vertical,\r\n-                    child: ChairList(\r\n-                        size: size,\r\n-                        rowvalue: widget.rowvalue,\r\n-                        columnvalue: widget.columnvalue),\r\n-                  ),\r\n+                  ChairList(\r\n+                      size: size,\r\n+                      rowvalue: widget.rowvalue,\r\n+                      columnvalue: widget.columnvalue),\r\n                   SeatInfo(),\r\n                 ],\r\n               ),\r\n             ),\r\n"
+                },
+                {
+                    "date": 1645515505588,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n               ],\r\n             ),\r\n           ),\r\n           Positioned(\r\n-            bottom: size.height * 0.2,\r\n+            top: size.height / 4,\r\n             child: Container(\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n"
+                },
+                {
+                    "date": 1645515528894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n               ],\r\n             ),\r\n           ),\r\n           Positioned(\r\n-            top: size.height / 4,\r\n+            top: size.height / 3,\r\n             child: Container(\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n"
+                },
+                {
+                    "date": 1645515560659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n               ],\r\n             ),\r\n           ),\r\n           Positioned(\r\n-            top: size.height / 3,\r\n+            top: size.height,\r\n             child: Container(\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n"
+                },
+                {
+                    "date": 1645515588470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n               ],\r\n             ),\r\n           ),\r\n           Positioned(\r\n-            top: size.height,\r\n+            top: size.height / 5,\r\n             child: Container(\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n"
+                },
+                {
+                    "date": 1645515623530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,8 +58,9 @@\n           ),\r\n           Positioned(\r\n             top: size.height / 5,\r\n             child: Container(\r\n+              color: Colors.green,\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n                   ChairList(\r\n"
+                },
+                {
+                    "date": 1645515649775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,20 +57,16 @@\n             ),\r\n           ),\r\n           Positioned(\r\n             top: size.height / 5,\r\n-            child: Container(\r\n-              color: Colors.green,\r\n-              width: size.width * 0.70,\r\n-              child: Column(\r\n-                children: [\r\n-                  ChairList(\r\n-                      size: size,\r\n-                      rowvalue: widget.rowvalue,\r\n-                      columnvalue: widget.columnvalue),\r\n-                  SeatInfo(),\r\n-                ],\r\n-              ),\r\n+            child: Column(\r\n+              children: [\r\n+                ChairList(\r\n+                    size: size,\r\n+                    rowvalue: widget.rowvalue,\r\n+                    columnvalue: widget.columnvalue),\r\n+                SeatInfo(),\r\n+              ],\r\n             ),\r\n           ),\r\n         ],\r\n       ),\r\n"
+                },
+                {
+                    "date": 1645515679629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,16 +57,18 @@\n             ),\r\n           ),\r\n           Positioned(\r\n             top: size.height / 5,\r\n-            child: Column(\r\n-              children: [\r\n-                ChairList(\r\n-                    size: size,\r\n-                    rowvalue: widget.rowvalue,\r\n-                    columnvalue: widget.columnvalue),\r\n-                SeatInfo(),\r\n-              ],\r\n+            child: Expanded(\r\n+              child: Column(\r\n+                children: [\r\n+                  ChairList(\r\n+                      size: size,\r\n+                      rowvalue: widget.rowvalue,\r\n+                      columnvalue: widget.columnvalue),\r\n+                  SeatInfo(),\r\n+                ],\r\n+              ),\r\n             ),\r\n           ),\r\n         ],\r\n       ),\r\n"
+                },
+                {
+                    "date": 1645515761452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,11 @@\n             ),\r\n           ),\r\n           Positioned(\r\n             top: size.height / 5,\r\n-            child: Expanded(\r\n+            child: Container(\r\n+              color: Colors.green,\r\n+              width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n                   ChairList(\r\n                       size: size,\r\n"
+                },
+                {
+                    "date": 1645527349994,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,12 +62,15 @@\n               color: Colors.green,\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n-                  ChairList(\r\n-                      size: size,\r\n-                      rowvalue: widget.rowvalue,\r\n-                      columnvalue: widget.columnvalue),\r\n+                  SingleChildScrollView(\r\n+                    scrollDirection: Axis.vertical,\r\n+                    child: ChairList(\r\n+                        size: size,\r\n+                        rowvalue: widget.rowvalue,\r\n+                        columnvalue: widget.columnvalue),\r\n+                  ),\r\n                   SeatInfo(),\r\n                 ],\r\n               ),\r\n             ),\r\n"
+                },
+                {
+                    "date": 1645527385494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,15 +62,12 @@\n               color: Colors.green,\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n-                  SingleChildScrollView(\r\n-                    scrollDirection: Axis.vertical,\r\n-                    child: ChairList(\r\n-                        size: size,\r\n-                        rowvalue: widget.rowvalue,\r\n-                        columnvalue: widget.columnvalue),\r\n-                  ),\r\n+                  ChairList(\r\n+                      size: size,\r\n+                      rowvalue: widget.rowvalue,\r\n+                      columnvalue: widget.columnvalue),\r\n                   SeatInfo(),\r\n                 ],\r\n               ),\r\n             ),\r\n"
+                },
+                {
+                    "date": 1645527670969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n   @override\r\n   Widget build(BuildContext context) {\r\n     Size size = MediaQuery.of(context).size;\r\n     return Container(\r\n+      height: size.height,\r\n       child: Stack(\r\n         alignment: Alignment.center,\r\n         children: [\r\n           Container(\r\n"
+                },
+                {
+                    "date": 1645527684966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n   @override\r\n   Widget build(BuildContext context) {\r\n     Size size = MediaQuery.of(context).size;\r\n     return Container(\r\n-      height: size.height,\r\n+      height: size.height - 200,\r\n       child: Stack(\r\n         alignment: Alignment.center,\r\n         children: [\r\n           Container(\r\n"
+                },
+                {
+                    "date": 1645527702117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n   @override\r\n   Widget build(BuildContext context) {\r\n     Size size = MediaQuery.of(context).size;\r\n     return Container(\r\n+      color: Colors.blue,\r\n       height: size.height - 200,\r\n       child: Stack(\r\n         alignment: Alignment.center,\r\n         children: [\r\n"
+                },
+                {
+                    "date": 1645527780405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,10 +16,8 @@\n   @override\r\n   Widget build(BuildContext context) {\r\n     Size size = MediaQuery.of(context).size;\r\n     return Container(\r\n-      color: Colors.blue,\r\n-      height: size.height - 200,\r\n       child: Stack(\r\n         alignment: Alignment.center,\r\n         children: [\r\n           Container(\r\n@@ -61,8 +59,9 @@\n           Positioned(\r\n             top: size.height / 5,\r\n             child: Container(\r\n               color: Colors.green,\r\n+              height: size.height,\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n                   ChairList(\r\n"
+                },
+                {
+                    "date": 1645527795604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n           Positioned(\r\n             top: size.height / 5,\r\n             child: Container(\r\n               color: Colors.green,\r\n-              height: size.height,\r\n+              height: size.height - 200,\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n                   ChairList(\r\n"
+                },
+                {
+                    "date": 1645527950031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n           Positioned(\r\n             top: size.height / 5,\r\n             child: Container(\r\n               color: Colors.green,\r\n-              height: size.height - 200,\r\n+              height: size.height - 300,\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n                   ChairList(\r\n"
+                },
+                {
+                    "date": 1645528366457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n           Positioned(\r\n             top: size.height / 5,\r\n             child: Container(\r\n               color: Colors.green,\r\n-              height: size.height - 300,\r\n+              height: size.height - 200,\r\n               width: size.width * 0.70,\r\n               child: Column(\r\n                 children: [\r\n                   ChairList(\r\n"
+                },
+                {
+                    "date": 1645528437876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n             top: size.height / 5,\r\n             child: Container(\r\n               color: Colors.green,\r\n               height: size.height - 200,\r\n-              width: size.width * 0.70,\r\n+              width: size.width * 0.80,\r\n               child: Column(\r\n                 children: [\r\n                   ChairList(\r\n                       size: size,\r\n"
+                },
+                {
+                    "date": 1645528460254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n           Positioned(\r\n             top: size.height / 5,\r\n             child: Container(\r\n               color: Colors.green,\r\n-              height: size.height - 200,\r\n+              height: size.height - 100,\r\n               width: size.width * 0.80,\r\n               child: Column(\r\n                 children: [\r\n                   ChairList(\r\n"
+                },
+                {
+                    "date": 1645528466572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n           Positioned(\r\n             top: size.height / 5,\r\n             child: Container(\r\n               color: Colors.green,\r\n-              height: size.height - 100,\r\n+              height: size.height - 200,\r\n               width: size.width * 0.80,\r\n               child: Column(\r\n                 children: [\r\n                   ChairList(\r\n"
+                },
+                {
+                    "date": 1645528779794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n             top: size.height / 5,\r\n             child: Container(\r\n               color: Colors.green,\r\n               height: size.height - 200,\r\n-              width: size.width * 0.80,\r\n+              width: size.width * 0.90,\r\n               child: Column(\r\n                 children: [\r\n                   ChairList(\r\n                       size: size,\r\n"
+                },
+                {
+                    "date": 1645528806479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n               ],\r\n             ),\r\n           ),\r\n           Positioned(\r\n-            top: size.height / 5,\r\n+            top: size.height / 6,\r\n             child: Container(\r\n               color: Colors.green,\r\n               height: size.height - 200,\r\n               width: size.width * 0.90,\r\n"
+                },
+                {
+                    "date": 1645528831262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n             color: Colors.black,\r\n             width: size.width,\r\n           ),\r\n           Positioned(\r\n-            top: 48,\r\n+            top: 55,\r\n             child: Stack(\r\n               alignment: Alignment.topCenter,\r\n               children: [\r\n                 Container(\r\n"
+                },
+                {
+                    "date": 1645528856448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n               alignment: Alignment.topCenter,\r\n               children: [\r\n                 Container(\r\n                   height: 40,\r\n-                  width: MediaQuery.of(context).size.width * 0.70,\r\n+                  width: MediaQuery.of(context).size.width * 0.90,\r\n                   decoration: BoxDecoration(\r\n                     borderRadius: BorderRadius.only(\r\n                       topRight: Radius.circular(50.0),\r\n                       topLeft: Radius.circular(50.0),\r\n@@ -45,9 +45,9 @@\n                   ),\r\n                 ),\r\n                 Container(\r\n                   height: 40,\r\n-                  width: MediaQuery.of(context).size.width * 0.60,\r\n+                  width: MediaQuery.of(context).size.width * 0.80,\r\n                   decoration: BoxDecoration(\r\n                     border: Border(\r\n                       top: BorderSide(width: 4.0, color: Colors.white),\r\n                     ),\r\n"
+                },
+                {
+                    "date": 1645528865734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                   ),\r\n                 ),\r\n                 Container(\r\n                   height: 40,\r\n-                  width: MediaQuery.of(context).size.width * 0.80,\r\n+                  width: MediaQuery.of(context).size.width * 0.70,\r\n                   decoration: BoxDecoration(\r\n                     border: Border(\r\n                       top: BorderSide(width: 4.0, color: Colors.white),\r\n                     ),\r\n"
+                },
+                {
+                    "date": 1645528873047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                   ),\r\n                 ),\r\n                 Container(\r\n                   height: 40,\r\n-                  width: MediaQuery.of(context).size.width * 0.70,\r\n+                  width: MediaQuery.of(context).size.width * 0.75,\r\n                   decoration: BoxDecoration(\r\n                     border: Border(\r\n                       top: BorderSide(width: 4.0, color: Colors.white),\r\n                     ),\r\n"
+                },
+                {
+                    "date": 1645528885250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,8 @@\n           ),\r\n           Positioned(\r\n             top: size.height / 6,\r\n             child: Container(\r\n-              color: Colors.green,\r\n               height: size.height - 200,\r\n               width: size.width * 0.90,\r\n               child: Column(\r\n                 children: [\r\n"
+                },
+                {
+                    "date": 1645528912537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,8 +66,9 @@\n                   ChairList(\r\n                       size: size,\r\n                       rowvalue: widget.rowvalue,\r\n                       columnvalue: widget.columnvalue),\r\n+                  SizedBox(height: 10),\r\n                   SeatInfo(),\r\n                 ],\r\n               ),\r\n             ),\r\n"
+                },
+                {
+                    "date": 1645528928544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n           ),\r\n           Positioned(\r\n             top: size.height / 6,\r\n             child: Container(\r\n-              height: size.height - 200,\r\n+              height: size.height - 100,\r\n               width: size.width * 0.90,\r\n               child: Column(\r\n                 children: [\r\n                   ChairList(\r\n"
+                },
+                {
+                    "date": 1645528937910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n           ),\r\n           Positioned(\r\n             top: size.height / 6,\r\n             child: Container(\r\n-              height: size.height - 100,\r\n+              height: size.height - 150,\r\n               width: size.width * 0.90,\r\n               child: Column(\r\n                 children: [\r\n                   ChairList(\r\n"
+                },
+                {
+                    "date": 1645529123052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,66 +15,71 @@\n class _SeatSelectorState extends State<SeatSelector> {\r\n   @override\r\n   Widget build(BuildContext context) {\r\n     Size size = MediaQuery.of(context).size;\r\n-    return Container(\r\n-      child: Stack(\r\n-        alignment: Alignment.center,\r\n-        children: [\r\n-          Container(\r\n-            color: Colors.black,\r\n-            width: size.width,\r\n-          ),\r\n-          Positioned(\r\n-            top: 55,\r\n-            child: Stack(\r\n-              alignment: Alignment.topCenter,\r\n-              children: [\r\n-                Container(\r\n-                  height: 40,\r\n-                  width: MediaQuery.of(context).size.width * 0.90,\r\n-                  decoration: BoxDecoration(\r\n-                    borderRadius: BorderRadius.only(\r\n-                      topRight: Radius.circular(50.0),\r\n-                      topLeft: Radius.circular(50.0),\r\n+    return Scaffold(\r\n+      appBar: AppBar(\r\n+        title: Text('Total Seat - ${widget.rowvalue * widget.columnvalue}'),\r\n+      ),\r\n+      body: Container(\r\n+        child: Stack(\r\n+          alignment: Alignment.center,\r\n+          children: [\r\n+            Container(\r\n+              color: Colors.black,\r\n+              width: size.width,\r\n+            ),\r\n+            Positioned(\r\n+              top: 55,\r\n+              child: Stack(\r\n+                alignment: Alignment.topCenter,\r\n+                children: [\r\n+                  Container(\r\n+                    height: 40,\r\n+                    width: MediaQuery.of(context).size.width * 0.90,\r\n+                    decoration: BoxDecoration(\r\n+                      borderRadius: BorderRadius.only(\r\n+                        topRight: Radius.circular(50.0),\r\n+                        topLeft: Radius.circular(50.0),\r\n+                      ),\r\n+                      gradient: LinearGradient(\r\n+                          colors: [Colors.yellow, Colors.transparent],\r\n+                          begin: Alignment.topCenter,\r\n+                          end: Alignment.bottomCenter,\r\n+                          stops: [0, 1]),\r\n                     ),\r\n-                    gradient: LinearGradient(\r\n-                        colors: [Colors.yellow, Colors.transparent],\r\n-                        begin: Alignment.topCenter,\r\n-                        end: Alignment.bottomCenter,\r\n-                        stops: [0, 1]),\r\n                   ),\r\n-                ),\r\n-                Container(\r\n-                  height: 40,\r\n-                  width: MediaQuery.of(context).size.width * 0.75,\r\n-                  decoration: BoxDecoration(\r\n-                    border: Border(\r\n-                      top: BorderSide(width: 4.0, color: Colors.white),\r\n+                  Container(\r\n+                    height: 40,\r\n+                    width: MediaQuery.of(context).size.width * 0.75,\r\n+                    decoration: BoxDecoration(\r\n+                      border: Border(\r\n+                        top: BorderSide(width: 4.0, color: Colors.white),\r\n+                      ),\r\n                     ),\r\n-                  ),\r\n-                )\r\n-              ],\r\n-            ),\r\n-          ),\r\n-          Positioned(\r\n-            top: size.height / 6,\r\n-            child: Container(\r\n-              height: size.height - 150,\r\n-              width: size.width * 0.90,\r\n-              child: Column(\r\n-                children: [\r\n-                  ChairList(\r\n-                      size: size,\r\n-                      rowvalue: widget.rowvalue,\r\n-                      columnvalue: widget.columnvalue),\r\n-                  SizedBox(height: 10),\r\n-                  SeatInfo(),\r\n+                  )\r\n                 ],\r\n               ),\r\n             ),\r\n-          ),\r\n-        ],\r\n+            Positioned(\r\n+              top: size.height / 6,\r\n+              child: Container(\r\n+                height: size.height - 150,\r\n+                width: size.width * 0.90,\r\n+                child: Column(\r\n+                  children: [\r\n+                    ChairList(\r\n+                        size: size,\r\n+                        rowvalue: widget.rowvalue,\r\n+                        columnvalue: widget.columnvalue),\r\n+                    SizedBox(height: 10),\r\n+                    SeatInfo(),\r\n+                  ],\r\n+                ),\r\n+              ),\r\n+            ),\r\n+          ],\r\n+        ),\r\n       ),\r\n     );\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1645529144568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,11 @@\n   Widget build(BuildContext context) {\r\n     Size size = MediaQuery.of(context).size;\r\n     return Scaffold(\r\n       appBar: AppBar(\r\n-        title: Text('Total Seat - ${widget.rowvalue * widget.columnvalue}'),\r\n+        title: Text(\r\n+          'Total Seat - ${widget.rowvalue * widget.columnvalue}',\r\n+        ),\r\n       ),\r\n       body: Container(\r\n         child: Stack(\r\n           alignment: Alignment.center,\r\n"
+                },
+                {
+                    "date": 1645529157769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n       appBar: AppBar(\r\n         title: Text(\r\n           'Total Seat - ${widget.rowvalue * widget.columnvalue}',\r\n         ),\r\n+        backgroundColor: Colors.black,\r\n       ),\r\n       body: Container(\r\n         child: Stack(\r\n           alignment: Alignment.center,\r\n"
+                },
+                {
+                    "date": 1645529195948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,9 @@\n             ),\r\n             Positioned(\r\n               top: size.height / 6,\r\n               child: Container(\r\n-                height: size.height - 150,\r\n+                height: size.height - 200,\r\n                 width: size.width * 0.90,\r\n                 child: Column(\r\n                   children: [\r\n                     ChairList(\r\n"
+                },
+                {
+                    "date": 1645529213304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,9 @@\n             ),\r\n             Positioned(\r\n               top: size.height / 6,\r\n               child: Container(\r\n-                height: size.height - 200,\r\n+                height: size.height / 3,\r\n                 width: size.width * 0.90,\r\n                 child: Column(\r\n                   children: [\r\n                     ChairList(\r\n"
+                },
+                {
+                    "date": 1645529218529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,9 @@\n             ),\r\n             Positioned(\r\n               top: size.height / 6,\r\n               child: Container(\r\n-                height: size.height / 3,\r\n+                height: size.height / 4,\r\n                 width: size.width * 0.90,\r\n                 child: Column(\r\n                   children: [\r\n                     ChairList(\r\n"
+                },
+                {
+                    "date": 1645529224735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,9 @@\n             ),\r\n             Positioned(\r\n               top: size.height / 6,\r\n               child: Container(\r\n-                height: size.height / 4,\r\n+                height: size.height / 1.5,\r\n                 width: size.width * 0.90,\r\n                 child: Column(\r\n                   children: [\r\n                     ChairList(\r\n"
                 }
             ],
             "date": 1645441169287,

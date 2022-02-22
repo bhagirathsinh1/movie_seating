@@ -1,0 +1,114 @@
+{
+    "sourceFile": "lib/home_screen.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 24,
+            "patches": [
+                {
+                    "date": 1645441621857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1645441665261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,9 @@\n   const HomeScreen({Key? key}) : super(key: key);\r\n \r\n   @override\r\n   Widget build(BuildContext context) {\r\n-    return Container();\r\n+    return Container(\r\n+      child: Center(child: Text()),\r\n+    );\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1645442540313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,10 @@\n \r\n   @override\r\n   Widget build(BuildContext context) {\r\n     return Container(\r\n-      child: Center(child: Text()),\r\n+      child: Center(\r\n+        child: TextButton(onPressed: null, child: Text(\"data\")),\r\n+      ),\r\n     );\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1645442581926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n   @override\r\n   Widget build(BuildContext context) {\r\n     return Container(\r\n       child: Center(\r\n-        child: TextButton(onPressed: null, child: Text(\"data\")),\r\n+        child: ElevatedButton(onPressed: null, child: Text(\"data\")),\r\n       ),\r\n     );\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1645443040870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n   @override\r\n   Widget build(BuildContext context) {\r\n     return Container(\r\n       child: Center(\r\n-        child: ElevatedButton(onPressed: null, child: Text(\"data\")),\r\n+        child: ElevatedButton(\r\n+            onPressed: showGotoAlert(context), child: Text(\"data\")),\r\n       ),\r\n     );\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1645443224791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,89 @@\n import 'package:flutter/material.dart';\r\n+import 'package:flutter/services.dart';\r\n \r\n class HomeScreen extends StatelessWidget {\r\n-  const HomeScreen({Key? key}) : super(key: key);\r\n+  HomeScreen({Key? key}) : super(key: key);\r\n+  TextEditingController textGotoValue = TextEditingController();\r\n \r\n   @override\r\n   Widget build(BuildContext context) {\r\n     return Container(\r\n       child: Center(\r\n         child: ElevatedButton(\r\n-            onPressed: showGotoAlert(context), child: Text(\"data\")),\r\n+          onPressed: showGotoAlert(context),\r\n+          child: Text(\"data\"),\r\n+        ),\r\n       ),\r\n     );\r\n   }\r\n+\r\n+  final _formKey = GlobalKey<FormState>();\r\n+\r\n+  showGotoAlert(BuildContext context) {\r\n+    // set up the buttons\r\n+    Widget cancelButton = TextButton(\r\n+      child: Text(\"CANCEL\"),\r\n+      onPressed: () {\r\n+        Navigator.pop(context);\r\n+      },\r\n+    );\r\n+    Widget continueButton = TextButton(\r\n+      child: Text(\"OK\"),\r\n+      onPressed: () {\r\n+        if (_formKey.currentState!.validate()) {\r\n+          int temp = int.parse(textGotoValue.text);\r\n+          Navigator.pop(context);\r\n+          Navigator.pop(context);\r\n+        }\r\n+      },\r\n+    );\r\n+\r\n+    // set up the AlertDialog\r\n+    AlertDialog alert = AlertDialog(\r\n+      title: Text(\"Go to Page\"),\r\n+      content: Container(\r\n+        height: 110,\r\n+        child: Form(\r\n+          key: _formKey,\r\n+          child: Column(\r\n+            mainAxisSize: MainAxisSize.min,\r\n+            children: [\r\n+              TextFormField(\r\n+                controller: textGotoValue,\r\n+\r\n+                keyboardType: TextInputType.number,\r\n+                inputFormatters: <TextInputFormatter>[\r\n+                  FilteringTextInputFormatter.digitsOnly\r\n+                ], // Only numbers can be entered\r\n+                decoration: const InputDecoration(\r\n+                    border: UnderlineInputBorder(),\r\n+                    labelText: 'Enter Page Number '),\r\n+              ),\r\n+              Align(\r\n+                alignment: Alignment.topRight,\r\n+                child: Text(\r\n+                  'Enter Row',\r\n+                  style: TextStyle(\r\n+                    color: Colors.grey,\r\n+                  ),\r\n+                ),\r\n+              )\r\n+            ],\r\n+          ),\r\n+        ),\r\n+      ),\r\n+      actions: [\r\n+        cancelButton,\r\n+        continueButton,\r\n+      ],\r\n+    );\r\n+\r\n+    // show the dialog\r\n+    showDialog(\r\n+      context: context,\r\n+      builder: (BuildContext context) {\r\n+        return alert;\r\n+      },\r\n+    );\r\n+  }\r\n }\r\n"
+                },
+                {
+                    "date": 1645443274397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,15 @@\n import 'package:flutter/material.dart';\r\n import 'package:flutter/services.dart';\r\n \r\n-class HomeScreen extends StatelessWidget {\r\n+class HomeScreen extends StatefulWidget {\r\n   HomeScreen({Key? key}) : super(key: key);\r\n+\r\n+  @override\r\n+  State<HomeScreen> createState() => _HomeScreenState();\r\n+}\r\n+\r\n+class _HomeScreenState extends State<HomeScreen> {\r\n   TextEditingController textGotoValue = TextEditingController();\r\n \r\n   @override\r\n   Widget build(BuildContext context) {\r\n"
+                },
+                {
+                    "date": 1645443296676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n }\r\n \r\n class _HomeScreenState extends State<HomeScreen> {\r\n   TextEditingController textGotoValue = TextEditingController();\r\n+  final _formKey = GlobalKey<FormState>();\r\n \r\n   @override\r\n   Widget build(BuildContext context) {\r\n     return Container(\r\n@@ -22,10 +23,8 @@\n       ),\r\n     );\r\n   }\r\n \r\n-  final _formKey = GlobalKey<FormState>();\r\n-\r\n   showGotoAlert(BuildContext context) {\r\n     // set up the buttons\r\n     Widget cancelButton = TextButton(\r\n       child: Text(\"CANCEL\"),\r\n"
+                },
+                {
+                    "date": 1645443344618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,19 +28,19 @@\n     // set up the buttons\r\n     Widget cancelButton = TextButton(\r\n       child: Text(\"CANCEL\"),\r\n       onPressed: () {\r\n-        Navigator.pop(context);\r\n+        // Navigator.pop(context);\r\n       },\r\n     );\r\n     Widget continueButton = TextButton(\r\n       child: Text(\"OK\"),\r\n       onPressed: () {\r\n-        if (_formKey.currentState!.validate()) {\r\n-          int temp = int.parse(textGotoValue.text);\r\n-          Navigator.pop(context);\r\n-          Navigator.pop(context);\r\n-        }\r\n+        // if (_formKey.currentState!.validate()) {\r\n+        //   // int temp = int.parse(textGotoValue.text);\r\n+        //   // Navigator.pop(context);\r\n+        //   // Navigator.pop(context);\r\n+        // }\r\n       },\r\n     );\r\n \r\n     // set up the AlertDialog\r\n"
+                },
+                {
+                    "date": 1645443429404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,23 @@\n     return Container(\r\n       child: Center(\r\n         child: ElevatedButton(\r\n           onPressed: showGotoAlert(context),\r\n-          child: Text(\"data\"),\r\n+          child: ListTile(\r\n+            title: Text(\r\n+              \"Go to page\",\r\n+              style: TextStyle(\r\n+                color: Colors.black.withOpacity(0.8),\r\n+              ),\r\n+            ),\r\n+            leading: Icon(\r\n+              Icons.screen_search_desktop_rounded,\r\n+              color: Colors.black.withOpacity(0.5),\r\n+            ),\r\n+            onTap: () {\r\n+              showGotoAlert(context);\r\n+            },\r\n+          ),\r\n         ),\r\n       ),\r\n     );\r\n   }\r\n"
+                },
+                {
+                    "date": 1645443505260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,24 +16,10 @@\n   Widget build(BuildContext context) {\r\n     return Container(\r\n       child: Center(\r\n         child: ElevatedButton(\r\n+          child: Text(\"data\"),\r\n           onPressed: showGotoAlert(context),\r\n-          child: ListTile(\r\n-            title: Text(\r\n-              \"Go to page\",\r\n-              style: TextStyle(\r\n-                color: Colors.black.withOpacity(0.8),\r\n-              ),\r\n-            ),\r\n-            leading: Icon(\r\n-              Icons.screen_search_desktop_rounded,\r\n-              color: Colors.black.withOpacity(0.5),\r\n-            ),\r\n-            onTap: () {\r\n-              showGotoAlert(context);\r\n-            },\r\n-          ),\r\n         ),\r\n       ),\r\n     );\r\n   }\r\n@@ -48,13 +34,13 @@\n     );\r\n     Widget continueButton = TextButton(\r\n       child: Text(\"OK\"),\r\n       onPressed: () {\r\n-        // if (_formKey.currentState!.validate()) {\r\n-        //   // int temp = int.parse(textGotoValue.text);\r\n-        //   // Navigator.pop(context);\r\n-        //   // Navigator.pop(context);\r\n-        // }\r\n+        if (_formKey.currentState!.validate()) {\r\n+          // int temp = int.parse(textGotoValue.text);\r\n+          // Navigator.pop(context);\r\n+          // Navigator.pop(context);\r\n+        }\r\n       },\r\n     );\r\n \r\n     // set up the AlertDialog\r\n"
+                },
+                {
+                    "date": 1645443555730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   State<HomeScreen> createState() => _HomeScreenState();\r\n }\r\n \r\n class _HomeScreenState extends State<HomeScreen> {\r\n-  TextEditingController textGotoValue = TextEditingController();\r\n+  // TextEditingController textGotoValue = TextEditingController();\r\n   final _formKey = GlobalKey<FormState>();\r\n \r\n   @override\r\n   Widget build(BuildContext context) {\r\n@@ -53,9 +53,9 @@\n           child: Column(\r\n             mainAxisSize: MainAxisSize.min,\r\n             children: [\r\n               TextFormField(\r\n-                controller: textGotoValue,\r\n+                // controller: textGotoValue,\r\n \r\n                 keyboardType: TextInputType.number,\r\n                 inputFormatters: <TextInputFormatter>[\r\n                   FilteringTextInputFormatter.digitsOnly\r\n"
+                },
+                {
+                    "date": 1645443783162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,13 +15,14 @@\n   @override\r\n   Widget build(BuildContext context) {\r\n     return Container(\r\n       child: Center(\r\n-        child: ElevatedButton(\r\n-          child: Text(\"data\"),\r\n-          onPressed: showGotoAlert(context),\r\n-        ),\r\n-      ),\r\n+          child: IconButton(\r\n+        icon: new Icon(Icons.bookmark),\r\n+        onPressed: () {\r\n+          showGotoAlert(context);\r\n+        },\r\n+      )),\r\n     );\r\n   }\r\n \r\n   showGotoAlert(BuildContext context) {\r\n"
+                },
+                {
+                    "date": 1645443845486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,16 +13,18 @@\n   final _formKey = GlobalKey<FormState>();\r\n \r\n   @override\r\n   Widget build(BuildContext context) {\r\n-    return Container(\r\n-      child: Center(\r\n-          child: IconButton(\r\n-        icon: new Icon(Icons.bookmark),\r\n-        onPressed: () {\r\n-          showGotoAlert(context);\r\n-        },\r\n-      )),\r\n+    return Scaffold(\r\n+      body: Container(\r\n+        child: Center(\r\n+            child: IconButton(\r\n+          icon: new Icon(Icons.bookmark),\r\n+          onPressed: () {\r\n+            showGotoAlert(context);\r\n+          },\r\n+        )),\r\n+      ),\r\n     );\r\n   }\r\n \r\n   showGotoAlert(BuildContext context) {\r\n"
+                },
+                {
+                    "date": 1645443876772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,10 +63,9 @@\n                 inputFormatters: <TextInputFormatter>[\r\n                   FilteringTextInputFormatter.digitsOnly\r\n                 ], // Only numbers can be entered\r\n                 decoration: const InputDecoration(\r\n-                    border: UnderlineInputBorder(),\r\n-                    labelText: 'Enter Page Number '),\r\n+                    border: UnderlineInputBorder(), labelText: 'Enter Row'),\r\n               ),\r\n               Align(\r\n                 alignment: Alignment.topRight,\r\n                 child: Text(\r\n"
+                },
+                {
+                    "date": 1645443900565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,9 +63,10 @@\n                 inputFormatters: <TextInputFormatter>[\r\n                   FilteringTextInputFormatter.digitsOnly\r\n                 ], // Only numbers can be entered\r\n                 decoration: const InputDecoration(\r\n-                    border: UnderlineInputBorder(), labelText: 'Enter Row'),\r\n+                  border: UnderlineInputBorder(),\r\n+                ),\r\n               ),\r\n               Align(\r\n                 alignment: Alignment.topRight,\r\n                 child: Text(\r\n"
+                },
+                {
+                    "date": 1645443913397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,20 +63,19 @@\n                 inputFormatters: <TextInputFormatter>[\r\n                   FilteringTextInputFormatter.digitsOnly\r\n                 ], // Only numbers can be entered\r\n                 decoration: const InputDecoration(\r\n-                  border: UnderlineInputBorder(),\r\n-                ),\r\n+                    border: UnderlineInputBorder(), labelText: 'Enter Row'),\r\n               ),\r\n-              Align(\r\n-                alignment: Alignment.topRight,\r\n-                child: Text(\r\n-                  'Enter Row',\r\n-                  style: TextStyle(\r\n-                    color: Colors.grey,\r\n-                  ),\r\n-                ),\r\n-              )\r\n+              // Align(\r\n+              //   alignment: Alignment.topRight,\r\n+              //   child: Text(\r\n+              //     'Enter Row',\r\n+              //     style: TextStyle(\r\n+              //       color: Colors.grey,\r\n+              //     ),\r\n+              //   ),\r\n+              // )\r\n             ],\r\n           ),\r\n         ),\r\n       ),\r\n"
+                },
+                {
+                    "date": 1645443980835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     // set up the buttons\r\n     Widget cancelButton = TextButton(\r\n       child: Text(\"CANCEL\"),\r\n       onPressed: () {\r\n-        // Navigator.pop(context);\r\n+        Navigator.pop(context);\r\n       },\r\n     );\r\n     Widget continueButton = TextButton(\r\n       child: Text(\"OK\"),\r\n@@ -47,9 +47,9 @@\n     );\r\n \r\n     // set up the AlertDialog\r\n     AlertDialog alert = AlertDialog(\r\n-      title: Text(\"Go to Page\"),\r\n+      title: Text(\"Enter Row\"),\r\n       content: Container(\r\n         height: 110,\r\n         child: Form(\r\n           key: _formKey,\r\n"
+                },
+                {
+                    "date": 1645444030555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   State<HomeScreen> createState() => _HomeScreenState();\r\n }\r\n \r\n class _HomeScreenState extends State<HomeScreen> {\r\n-  // TextEditingController textGotoValue = TextEditingController();\r\n+  TextEditingController textGotoValue = TextEditingController();\r\n   final _formKey = GlobalKey<FormState>();\r\n \r\n   @override\r\n   Widget build(BuildContext context) {\r\n@@ -38,9 +38,9 @@\n     Widget continueButton = TextButton(\r\n       child: Text(\"OK\"),\r\n       onPressed: () {\r\n         if (_formKey.currentState!.validate()) {\r\n-          // int temp = int.parse(textGotoValue.text);\r\n+          int temp = int.parse(textGotoValue.text);\r\n           // Navigator.pop(context);\r\n           // Navigator.pop(context);\r\n         }\r\n       },\r\n"
+                },
+                {
+                    "date": 1645444259979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import 'package:flutter/material.dart';\r\n import 'package:flutter/services.dart';\r\n+import 'package:movie_seating/seat_selector.dart';\r\n \r\n class HomeScreen extends StatefulWidget {\r\n   HomeScreen({Key? key}) : super(key: key);\r\n \r\n@@ -38,11 +39,15 @@\n     Widget continueButton = TextButton(\r\n       child: Text(\"OK\"),\r\n       onPressed: () {\r\n         if (_formKey.currentState!.validate()) {\r\n-          int temp = int.parse(textGotoValue.text);\r\n+          int rowvalue = int.parse(textGotoValue.text);\r\n           // Navigator.pop(context);\r\n-          // Navigator.pop(context);\r\n+          Navigator.push(\r\n+            context,\r\n+            MaterialPageRoute(\r\n+                builder: (context) => SeatSelector(rowvalue: rowvalue)),\r\n+          );\r\n         }\r\n       },\r\n     );\r\n \r\n"
+                },
+                {
+                    "date": 1645444632606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n       child: Text(\"OK\"),\r\n       onPressed: () {\r\n         if (_formKey.currentState!.validate()) {\r\n           int rowvalue = int.parse(textGotoValue.text);\r\n-          // Navigator.pop(context);\r\n+          Navigator.pop(context);\r\n           Navigator.push(\r\n             context,\r\n             MaterialPageRoute(\r\n                 builder: (context) => SeatSelector(rowvalue: rowvalue)),\r\n"
+                },
+                {
+                    "date": 1645444701966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,13 +41,13 @@\n       onPressed: () {\r\n         if (_formKey.currentState!.validate()) {\r\n           int rowvalue = int.parse(textGotoValue.text);\r\n           Navigator.pop(context);\r\n-          Navigator.push(\r\n-            context,\r\n-            MaterialPageRoute(\r\n-                builder: (context) => SeatSelector(rowvalue: rowvalue)),\r\n-          );\r\n+          // Navigator.push(\r\n+          //   context,\r\n+          //   MaterialPageRoute(\r\n+          //       builder: (context) => SeatSelector(rowvalue: rowvalue)),\r\n+          // );\r\n         }\r\n       },\r\n     );\r\n \r\n"
+                },
+                {
+                    "date": 1645445247668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,8 +41,9 @@\n       onPressed: () {\r\n         if (_formKey.currentState!.validate()) {\r\n           int rowvalue = int.parse(textGotoValue.text);\r\n           Navigator.pop(context);\r\n+          print('---------------$rowvalue-----------');\r\n           // Navigator.push(\r\n           //   context,\r\n           //   MaterialPageRoute(\r\n           //       builder: (context) => SeatSelector(rowvalue: rowvalue)),\r\n"
+                },
+                {
+                    "date": 1645445291000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,10 +40,11 @@\n       child: Text(\"OK\"),\r\n       onPressed: () {\r\n         if (_formKey.currentState!.validate()) {\r\n           int rowvalue = int.parse(textGotoValue.text);\r\n+          print('---------------$rowvalue-----------');\r\n+\r\n           Navigator.pop(context);\r\n-          print('---------------$rowvalue-----------');\r\n           // Navigator.push(\r\n           //   context,\r\n           //   MaterialPageRoute(\r\n           //       builder: (context) => SeatSelector(rowvalue: rowvalue)),\r\n"
+                },
+                {
+                    "date": 1645446048301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n               onPressed: () {\r\n                 Navigator.push(\r\n                   context,\r\n                   MaterialPageRoute(\r\n-                      builder: (context) => SeatSelector(rowvalue: 2)),\r\n+                      builder: (context) => SeatSelector(rowvalue: 2  )),\r\n                 );\r\n               },\r\n             ),\r\n           ],\r\n"
+                }
+            ],
+            "date": 1645441621857,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\r\n\r\nclass HomeScreen extends StatelessWidget {\r\n  const HomeScreen({Key? key}) : super(key: key);\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return Container();\r\n  }\r\n}\r\n"
+        }
+    ]
+}

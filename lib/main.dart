@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_seating/home_screen.dart';
 import 'package:movie_seating/seat_selector.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SeatSelector(),
+      home: HomeScreen(),
     );
   }
 }
