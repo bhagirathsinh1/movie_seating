@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movie_seating/home_screen.dart';
-import 'package:movie_seating/seat_selector.dart';
 
 void main() {
   runApp(const MyApp());

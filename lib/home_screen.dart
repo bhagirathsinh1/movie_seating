@@ -16,20 +16,23 @@ class _HomeScreenState extends State<HomeScreen> {
   final _formKeyRow = GlobalKey<FormState>();
   final _formKeyColumn = GlobalKey<FormState>();
 
-  var rowvalue;
-  var columnvalue;
+  var rowvalue = 5;
+  var columnvalue = 5;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Home Screen'),
+      ),
       body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           gradient: LinearGradient(
               colors: [Colors.blue, Colors.white],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight),
         ),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
