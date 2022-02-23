@@ -67,6 +67,8 @@ class _ChairListState extends State<ChairList> {
                               _chairStatus[row][column] = 3;
                               print('------$_chairStatus--------');
                             });
+                            Scaffold.of(context).showSnackBar(new SnackBar(
+                                content: new Text('Seat Reserved')));
                           } else {
                             setState(
                               () {
@@ -74,9 +76,6 @@ class _ChairListState extends State<ChairList> {
                                 print('------$_chairStatus--------');
                               },
                             );
-                            Scaffold.of(context).showSnackBar(new SnackBar(
-                                content: new Text(
-                                    '${_chairStatus[row][column]} Reserved')));
                           }
                         },
                         child: Container(
