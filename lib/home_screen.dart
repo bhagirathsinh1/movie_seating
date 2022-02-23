@@ -152,10 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       IconButton(
                         icon: new Icon(Icons.arrow_forward),
                         onPressed: () {
-                          if (rowvalue == 0 ||
-                              rowvalue == null ||
-                              columnvalue == 0 ||
-                              columnvalue == null) {
+                          if (rowvalue == 0 || columnvalue == 0) {
                             showGotoAlert(context);
                           } else {
                             Navigator.push(

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1645444406177,
@@ -24,6 +24,14 @@
                 {
                     "date": 1645529282718,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import 'package:flutter/material.dart';\r\n-import 'package:flutter/rendering.dart';\r\n \r\n class BuildChairs {\r\n   // static Widget selectedChair(int row, int column) {\r\n   //   return Container(\r\n"
+                },
+                {
+                    "date": 1645610613805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,26 +1,26 @@\n import 'package:flutter/material.dart';\r\n \r\n class BuildChairs {\r\n-  // static Widget selectedChair(int row, int column) {\r\n-  //   return Container(\r\n-  //     height: 10,\r\n-  //     width: 10,\r\n-  //     decoration: BoxDecoration(\r\n-  //       color: Colors.green[400],\r\n-  //       borderRadius: BorderRadius.circular(6.0),\r\n-  //     ),\r\n-  //     child: Center(\r\n-  //       child: Text(\r\n-  //         'R-$row\\nC-$column',\r\n-  //         style: TextStyle(\r\n-  //             decoration: TextDecoration.none,\r\n-  //             fontSize: 10,\r\n-  //             color: Colors.purple),\r\n-  //       ),\r\n-  //     ),\r\n-  //   );\r\n-  // }\r\n+  static Widget selectedChair(int row, int column) {\r\n+    return Container(\r\n+      height: 10,\r\n+      width: 10,\r\n+      decoration: BoxDecoration(\r\n+        color: Colors.green[400],\r\n+        borderRadius: BorderRadius.circular(6.0),\r\n+      ),\r\n+      child: Center(\r\n+        child: Text(\r\n+          'R-$row\\nC-$column',\r\n+          style: TextStyle(\r\n+              decoration: TextDecoration.none,\r\n+              fontSize: 10,\r\n+              color: Colors.purple),\r\n+        ),\r\n+      ),\r\n+    );\r\n+  }\r\n \r\n   static Widget availableChair(int row, int column) {\r\n     return Container(\r\n       decoration: BoxDecoration(\r\n@@ -38,24 +38,24 @@\n       ),\r\n     );\r\n   }\r\n \r\n-  // static Widget reservedChair(int row, int column) {\r\n-  //   return Container(\r\n-  //     height: 10,\r\n-  //     width: 10,\r\n-  //     decoration: BoxDecoration(\r\n-  //       color: Colors.grey,\r\n-  //       borderRadius: BorderRadius.circular(6.0),\r\n-  //     ),\r\n-  //     child: Center(\r\n-  //       child: Text(\r\n-  //         'R-$row\\nC-$column',\r\n-  //         style: TextStyle(\r\n-  //             decoration: TextDecoration.none,\r\n-  //             fontSize: 10,\r\n-  //             color: Colors.purple),\r\n-  //       ),\r\n-  //     ),\r\n-  //   );\r\n-  // }\r\n+  static Widget reservedChair(int row, int column) {\r\n+    return Container(\r\n+      height: 10,\r\n+      width: 10,\r\n+      decoration: BoxDecoration(\r\n+        color: Colors.grey,\r\n+        borderRadius: BorderRadius.circular(6.0),\r\n+      ),\r\n+      child: Center(\r\n+        child: Text(\r\n+          'R-$row\\nC-$column',\r\n+          style: TextStyle(\r\n+              decoration: TextDecoration.none,\r\n+              fontSize: 10,\r\n+              color: Colors.purple),\r\n+        ),\r\n+      ),\r\n+    );\r\n+  }\r\n }\r\n"
+                },
+                {
+                    "date": 1645610688963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,8 @@\n \r\n class BuildChairs {\r\n   static Widget selectedChair(int row, int column) {\r\n     return Container(\r\n-      height: 10,\r\n-      width: 10,\r\n       decoration: BoxDecoration(\r\n         color: Colors.green[400],\r\n         borderRadius: BorderRadius.circular(6.0),\r\n       ),\r\n@@ -40,10 +38,8 @@\n   }\r\n \r\n   static Widget reservedChair(int row, int column) {\r\n     return Container(\r\n-      height: 10,\r\n-      width: 10,\r\n       decoration: BoxDecoration(\r\n         color: Colors.grey,\r\n         borderRadius: BorderRadius.circular(6.0),\r\n       ),\r\n"
                 }
             ],
             "date": 1645444406177,

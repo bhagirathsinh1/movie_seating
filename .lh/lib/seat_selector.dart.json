@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 46,
+            "activePatchIndex": 51,
             "patches": [
                 {
                     "date": 1645441169287,
@@ -192,6 +192,26 @@
                 {
                     "date": 1645529224735,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,9 @@\n             ),\r\n             Positioned(\r\n               top: size.height / 6,\r\n               child: Container(\r\n-                height: size.height / 4,\r\n+                height: size.height / 1.5,\r\n                 width: size.width * 0.90,\r\n                 child: Column(\r\n                   children: [\r\n                     ChairList(\r\n"
+                },
+                {
+                    "date": 1645621506738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n       appBar: AppBar(\r\n         title: Text(\r\n           'Total Seat - ${widget.rowvalue * widget.columnvalue}',\r\n         ),\r\n-        backgroundColor: Colors.black,\r\n+        backgroundColor: Colors.white,\r\n       ),\r\n       body: Container(\r\n         child: Stack(\r\n           alignment: Alignment.center,\r\n"
+                },
+                {
+                    "date": 1645621518303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         child: Stack(\r\n           alignment: Alignment.center,\r\n           children: [\r\n             Container(\r\n-              color: Colors.black,\r\n+              color: Colors.white,\r\n               width: size.width,\r\n             ),\r\n             Positioned(\r\n               top: 55,\r\n"
+                },
+                {
+                    "date": 1645621561851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,16 +20,16 @@\n       appBar: AppBar(\r\n         title: Text(\r\n           'Total Seat - ${widget.rowvalue * widget.columnvalue}',\r\n         ),\r\n-        backgroundColor: Colors.white,\r\n+        backgroundColor: Colors.black,\r\n       ),\r\n       body: Container(\r\n         child: Stack(\r\n           alignment: Alignment.center,\r\n           children: [\r\n             Container(\r\n-              color: Colors.white,\r\n+              color: Colors.black,\r\n               width: size.width,\r\n             ),\r\n             Positioned(\r\n               top: 55,\r\n"
+                },
+                {
+                    "date": 1645621733284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         child: Stack(\r\n           alignment: Alignment.center,\r\n           children: [\r\n             Container(\r\n-              color: Colors.black,\r\n+              color: Colors.white,\r\n               width: size.width,\r\n             ),\r\n             Positioned(\r\n               top: 55,\r\n"
+                },
+                {
+                    "date": 1645621743424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         child: Stack(\r\n           alignment: Alignment.center,\r\n           children: [\r\n             Container(\r\n-              color: Colors.white,\r\n+              color: Colors.black,\r\n               width: size.width,\r\n             ),\r\n             Positioned(\r\n               top: 55,\r\n"
                 }
             ],
             "date": 1645441169287,
