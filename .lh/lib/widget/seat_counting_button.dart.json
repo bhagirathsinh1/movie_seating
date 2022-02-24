@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/widget/seat_counting_button.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1645698128416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1645698128416,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\r\n\r\nclass SeatCountingButton extends StatelessWidget {\r\n  const SeatCountingButton({\r\n    Key? key,\r\n    required this.rowvalue,\r\n    required this.columnvalue,\r\n  }) : super(key: key);\r\n\r\n  final int rowvalue;\r\n  final int columnvalue;\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return Card(\r\n      // elevation: 0,\r\n      shape: CircleBorder(),\r\n      child: Container(\r\n        height: 80,\r\n        width: 80,\r\n        decoration: BoxDecoration(\r\n            gradient: LinearGradient(colors: [Colors.white, Colors.blue]),\r\n            color: Colors.white,\r\n            borderRadius: BorderRadius.circular(10.0),\r\n            boxShadow: [\r\n              BoxShadow(\r\n                color: Colors.black,\r\n                blurRadius: 0.1,\r\n                offset: Offset(5, 5),\r\n              ),\r\n            ]),\r\n        child: Center(\r\n          child: Padding(\r\n            padding: const EdgeInsets.all(4),\r\n            child: Column(\r\n              crossAxisAlignment: CrossAxisAlignment.start,\r\n              mainAxisAlignment: MainAxisAlignment.spaceEvenly,\r\n              mainAxisSize: MainAxisSize.max,\r\n              children: [\r\n                Text(\r\n                  \"Row - $rowvalue\",\r\n                  style: TextStyle(\r\n                      color: Colors.black.withOpacity(0.5), fontSize: 12),\r\n                ),\r\n                Text(\r\n                  \"Column - $columnvalue\",\r\n                  style: TextStyle(\r\n                      color: Colors.black.withOpacity(0.5), fontSize: 12),\r\n                ),\r\n                Container(\r\n                    height: 1, width: 80, color: Colors.black.withOpacity(0.5)),\r\n                Text(\r\n                  \"Total - ${columnvalue * rowvalue}\",\r\n                  style: TextStyle(color: Colors.black.withOpacity(1)),\r\n                ),\r\n              ],\r\n            ),\r\n          ),\r\n        ),\r\n      ),\r\n    );\r\n  }\r\n}\r\n"
+        }
+    ]
+}

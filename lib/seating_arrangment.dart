@@ -1,9 +1,9 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:movie_seating/build_chairs.dart';
+import 'package:movie_seating/method/build_chairs.dart';
 
-class ChairList extends StatefulWidget {
+class SeatingArrangment extends StatefulWidget {
   int rowvalue;
   int columnvalue;
 
@@ -13,7 +13,7 @@ class ChairList extends StatefulWidget {
   int availableSeat;
   int selectedSeat;
   int reservedSeat;
-  ChairList({
+  SeatingArrangment({
     Key? key,
     required this.size,
     required this.rowvalue,
@@ -29,10 +29,10 @@ class ChairList extends StatefulWidget {
   final Size size;
 
   @override
-  State<ChairList> createState() => _ChairListState();
+  State<SeatingArrangment> createState() => _ChairListState();
 }
 
-class _ChairListState extends State<ChairList> {
+class _ChairListState extends State<SeatingArrangment> {
   late List<List<int>> _chairStatus;
   @override
   void initState() {
@@ -43,17 +43,6 @@ class _ChairListState extends State<ChairList> {
     ];
     // print('------------$matrix-----------------');
   }
-
-  var maxrow = 10;
-
-  // final List _chairStatus = [
-  //   [1, 1, 1, 1, 1, 1, 1],
-  //   [1, 1, 1, 1, 3, 1, 1],
-  //   [1, 1, 1, 1, 1, 3, 3],
-  //   [2, 2, 2, 1, 3, 1, 1],
-  //   [1, 1, 1, 1, 1, 1, 1],
-  //   [1, 1, 1, 1, 3, 1, 1],
-  // ];
 
   @override
   Widget build(BuildContext context) {

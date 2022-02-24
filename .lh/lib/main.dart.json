@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 12,
+            "activePatchIndex": 13,
             "patches": [
                 {
                     "date": 1645441169287,
@@ -11,56 +11,60 @@
                 },
                 {
                     "date": 1645442547807,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import 'package:flutter/material.dart';\r\n+import 'package:movie_seating/home_screen.dart';\r\n import 'package:movie_seating/seat_selector.dart';\r\n \r\n void main() {\r\n   runApp(const MyApp());\r\n@@ -16,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: SeatSelector(),\r\n+      home: HomeScreen(),\r\n     );\r\n   }\r\n }\r\n"
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import 'package:flutter/material.dart';\r\n+import 'package:movie_seating/home_screen.dart';\r\n import 'package:movie_seating/seat_selector.dart';\r\n \r\n void main() {\r\n   runApp(const MyApp());\r\n@@ -16,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: TheatreScreen(),\r\n+      home: HomeScreen(),\r\n     );\r\n   }\r\n }\r\n"
                 },
                 {
                     "date": 1645445361172,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: HomeScreen(),\r\n+      home: SeatSelector(rowvalue: 3),\r\n     );\r\n   }\r\n }\r\n"
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: HomeScreen(),\r\n+      home: TheatreScreen(rowvalue: 3),\r\n     );\r\n   }\r\n }\r\n"
                 },
                 {
                     "date": 1645445379908,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: SeatSelector(rowvalue: 3),\r\n+      home: SeatSelector(rowvalue: 4),\r\n     );\r\n   }\r\n }\r\n"
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: TheatreScreen(rowvalue: 3),\r\n+      home: TheatreScreen(rowvalue: 4),\r\n     );\r\n   }\r\n }\r\n"
                 },
                 {
                     "date": 1645445412748,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: SeatSelector(rowvalue: 4),\r\n+      home: SeatSelector(rowvalue: 6),\r\n     );\r\n   }\r\n }\r\n"
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: TheatreScreen(rowvalue: 4),\r\n+      home: TheatreScreen(rowvalue: 6),\r\n     );\r\n   }\r\n }\r\n"
                 },
                 {
                     "date": 1645445471675,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: SeatSelector(rowvalue: 6),\r\n+      home: SeatSelector(rowvalue: 2),\r\n     );\r\n   }\r\n }\r\n"
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: TheatreScreen(rowvalue: 6),\r\n+      home: TheatreScreen(rowvalue: 2),\r\n     );\r\n   }\r\n }\r\n"
                 },
                 {
                     "date": 1645445486511,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: SeatSelector(rowvalue: 2),\r\n+      home: SeatSelector(rowvalue: 5),\r\n     );\r\n   }\r\n }\r\n"
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: TheatreScreen(rowvalue: 2),\r\n+      home: TheatreScreen(rowvalue: 5),\r\n     );\r\n   }\r\n }\r\n"
                 },
                 {
                     "date": 1645445552347,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: SeatSelector(rowvalue: 5),\r\n+      home: SeatSelector(rowvalue: 4),\r\n     );\r\n   }\r\n }\r\n"
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: TheatreScreen(rowvalue: 5),\r\n+      home: TheatreScreen(rowvalue: 4),\r\n     );\r\n   }\r\n }\r\n"
                 },
                 {
                     "date": 1645445563071,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: SeatSelector(rowvalue: 4),\r\n+      home: SeatSelector(rowvalue: 6),\r\n     );\r\n   }\r\n }\r\n"
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: TheatreScreen(rowvalue: 4),\r\n+      home: TheatreScreen(rowvalue: 6),\r\n     );\r\n   }\r\n }\r\n"
                 },
                 {
                     "date": 1645445604095,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: SeatSelector(rowvalue: 6),\r\n+      home: SeatSelector(rowvalue: 5),\r\n     );\r\n   }\r\n }\r\n"
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: TheatreScreen(rowvalue: 6),\r\n+      home: TheatreScreen(rowvalue: 5),\r\n     );\r\n   }\r\n }\r\n"
                 },
                 {
                     "date": 1645445693357,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: SeatSelector(rowvalue: 5),\r\n+      home: SeatSelector(rowvalue: 6),\r\n     );\r\n   }\r\n }\r\n"
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: TheatreScreen(rowvalue: 5),\r\n+      home: TheatreScreen(rowvalue: 6),\r\n     );\r\n   }\r\n }\r\n"
                 },
                 {
                     "date": 1645446048293,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: SeatSelector(rowvalue: 6),\r\n+      home: HomeScreen(),\r\n     );\r\n   }\r\n }\r\n"
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n       title: 'Flutter Demo',\r\n       theme: ThemeData(\r\n         primarySwatch: Colors.blue,\r\n       ),\r\n-      home: TheatreScreen(rowvalue: 6),\r\n+      home: HomeScreen(),\r\n     );\r\n   }\r\n }\r\n"
                 },
                 {
                     "date": 1645589919233,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n import 'package:flutter/material.dart';\r\n import 'package:movie_seating/home_screen.dart';\r\n-import 'package:movie_seating/seat_selector.dart';\r\n \r\n void main() {\r\n   runApp(const MyApp());\r\n }\r\n"
+                },
+                {
+                    "date": 1645703505393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import 'package:flutter/material.dart';\r\n-import 'package:movie_seating/home_screen.dart';\r\n+import 'package:movie_seating/screen/home_screen.dart';\r\n \r\n void main() {\r\n   runApp(const MyApp());\r\n }\r\n"
                 }
             ],
             "date": 1645441169287,
             "name": "Commit-0",
-            "content": "import 'package:flutter/material.dart';\r\nimport 'package:movie_seating/seat_selector.dart';\r\n\r\nvoid main() {\r\n  runApp(const MyApp());\r\n}\r\n\r\nclass MyApp extends StatelessWidget {\r\n  const MyApp({Key? key}) : super(key: key);\r\n\r\n  // This widget is the root of your application.\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return MaterialApp(\r\n      debugShowCheckedModeBanner: false,\r\n      title: 'Flutter Demo',\r\n      theme: ThemeData(\r\n        primarySwatch: Colors.blue,\r\n      ),\r\n      home: SeatSelector(),\r\n    );\r\n  }\r\n}\r\n"
+            "content": "import 'package:flutter/material.dart';\r\nimport 'package:movie_seating/seat_selector.dart';\r\n\r\nvoid main() {\r\n  runApp(const MyApp());\r\n}\r\n\r\nclass MyApp extends StatelessWidget {\r\n  const MyApp({Key? key}) : super(key: key);\r\n\r\n  // This widget is the root of your application.\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return MaterialApp(\r\n      debugShowCheckedModeBanner: false,\r\n      title: 'Flutter Demo',\r\n      theme: ThemeData(\r\n        primarySwatch: Colors.blue,\r\n      ),\r\n      home: TheatreScreen(),\r\n    );\r\n  }\r\n}\r\n"
         }
     ]
 }

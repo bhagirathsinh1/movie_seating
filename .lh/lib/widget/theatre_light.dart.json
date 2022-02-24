@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/widget/theatre_light.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1645698029774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1645698029774,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\r\n\r\nclass TheatreLightWidget extends StatelessWidget {\r\n  const TheatreLightWidget({\r\n    Key? key,\r\n  }) : super(key: key);\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return Stack(\r\n      alignment: Alignment.topCenter,\r\n      children: [\r\n        Container(\r\n          height: 40,\r\n          width: MediaQuery.of(context).size.width * 0.90,\r\n          decoration: BoxDecoration(\r\n            borderRadius: BorderRadius.only(\r\n              topRight: Radius.circular(50.0),\r\n              topLeft: Radius.circular(50.0),\r\n            ),\r\n            gradient: LinearGradient(\r\n                colors: [Colors.yellow, Colors.transparent],\r\n                begin: Alignment.topCenter,\r\n                end: Alignment.bottomCenter,\r\n                stops: [0, 1]),\r\n          ),\r\n        ),\r\n        Container(\r\n          height: 40,\r\n          width: MediaQuery.of(context).size.width * 0.75,\r\n          decoration: BoxDecoration(\r\n            border: Border(\r\n              top: BorderSide(width: 4.0, color: Colors.white),\r\n            ),\r\n          ),\r\n        ),\r\n      ],\r\n    );\r\n  }\r\n}\r\n"
+        }
+    ]
+}
