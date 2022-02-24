@@ -43,7 +43,7 @@ class _SeatSelectorState extends State<SeatSelector> {
               color: Colors.black,
               width: size.width,
               child: Padding(
-                padding: const EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 70),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

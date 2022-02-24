@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 71,
+            "activePatchIndex": 77,
             "patches": [
                 {
                     "date": 1645441169287,
@@ -292,6 +292,30 @@
                 {
                     "date": 1645686154749,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,8 +102,11 @@\n                 width: size.width * 0.90,\r\n                 child: Column(\r\n                   children: [\r\n                     ChairList(\r\n+                        availableSeat: availableSeat,\r\n+                        reservedSeat: reservedSeat,\r\n+                        selectedSeat: selectedSeat,\r\n                         onAvailableSeatChanged: ((value) => setState(() {\r\n                               availableSeat = value;\r\n                             })),\r\n                         onReservedSeatChanged: ((value) => setState(() {\r\n"
+                },
+                {
+                    "date": 1645697649186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,8 +38,9 @@\n         child: Stack(\r\n           alignment: Alignment.center,\r\n           children: [\r\n             Container(\r\n+              padding: EdgeInsets.only(left: 20),\r\n               alignment: Alignment.topLeft,\r\n               color: Colors.black,\r\n               width: size.width,\r\n               child: Padding(\r\n"
+                },
+                {
+                    "date": 1645697660757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n         child: Stack(\r\n           alignment: Alignment.center,\r\n           children: [\r\n             Container(\r\n-              padding: EdgeInsets.only(left: 20),\r\n+              padding: EdgeInsets.only(left: 50),\r\n               alignment: Alignment.topLeft,\r\n               color: Colors.black,\r\n               width: size.width,\r\n               child: Padding(\r\n"
+                },
+                {
+                    "date": 1645697672781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n         child: Stack(\r\n           alignment: Alignment.center,\r\n           children: [\r\n             Container(\r\n-              padding: EdgeInsets.only(left: 50),\r\n+              padding: EdgeInsets.only(left: 70),\r\n               alignment: Alignment.topLeft,\r\n               color: Colors.black,\r\n               width: size.width,\r\n               child: Padding(\r\n"
+                },
+                {
+                    "date": 1645697734866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,14 +38,13 @@\n         child: Stack(\r\n           alignment: Alignment.center,\r\n           children: [\r\n             Container(\r\n-              padding: EdgeInsets.only(left: 70),\r\n               alignment: Alignment.topLeft,\r\n               color: Colors.black,\r\n               width: size.width,\r\n               child: Padding(\r\n-                padding: const EdgeInsets.only(left: 10),\r\n+                padding: const EdgeInsets.only(left: 100),\r\n                 child: Column(\r\n                   crossAxisAlignment: CrossAxisAlignment.start,\r\n                   children: [\r\n                     Text(\r\n"
+                },
+                {
+                    "date": 1645697744143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n               alignment: Alignment.topLeft,\r\n               color: Colors.black,\r\n               width: size.width,\r\n               child: Padding(\r\n-                padding: const EdgeInsets.only(left: 100),\r\n+                padding: const EdgeInsets.only(left: 7),\r\n                 child: Column(\r\n                   crossAxisAlignment: CrossAxisAlignment.start,\r\n                   children: [\r\n                     Text(\r\n"
+                },
+                {
+                    "date": 1645697752964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n               alignment: Alignment.topLeft,\r\n               color: Colors.black,\r\n               width: size.width,\r\n               child: Padding(\r\n-                padding: const EdgeInsets.only(left: 7),\r\n+                padding: const EdgeInsets.only(left: 70),\r\n                 child: Column(\r\n                   crossAxisAlignment: CrossAxisAlignment.start,\r\n                   children: [\r\n                     Text(\r\n"
                 }
             ],
             "date": 1645441169287,
