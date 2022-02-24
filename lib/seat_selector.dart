@@ -14,6 +14,17 @@ class SeatSelector extends StatefulWidget {
 
 class _SeatSelectorState extends State<SeatSelector> {
   @override
+  void initState() {
+    super.initState();
+    // setState(() {
+    availableSeat = widget.rowvalue * widget.columnvalue;
+    // });
+  }
+
+  int availableSeat = 0;
+  int selectedSeat = 0;
+  int reservedSeat = 0;
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -28,8 +39,29 @@ class _SeatSelectorState extends State<SeatSelector> {
           alignment: Alignment.center,
           children: [
             Container(
+              alignment: Alignment.topLeft,
               color: Colors.black,
               width: size.width,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Available : $availableSeat',
+                      style: TextStyle(color: Colors.white.withOpacity(0.5)),
+                    ),
+                    Text(
+                      'Selected  : $selectedSeat',
+                      style: TextStyle(color: Colors.white.withOpacity(0.5)),
+                    ),
+                    Text(
+                      'Reserved : $reservedSeat',
+                      style: TextStyle(color: Colors.white.withOpacity(0.5)),
+                    ),
+                  ],
+                ),
+              ),
             ),
             Positioned(
               top: 55,
@@ -59,7 +91,7 @@ class _SeatSelectorState extends State<SeatSelector> {
                         top: BorderSide(width: 4.0, color: Colors.white),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -71,6 +103,18 @@ class _SeatSelectorState extends State<SeatSelector> {
                 child: Column(
                   children: [
                     ChairList(
+                        availableSeat: availableSeat,
+                        reservedSeat: reservedSeat,
+                        selectedSeat: selectedSeat,
+                        onAvailableSeatChanged: ((value) => setState(() {
+                              availableSeat = value;
+                            })),
+                        onReservedSeatChanged: ((value) => setState(() {
+                              reservedSeat = value;
+                            })),
+                        onSelectedSeatChanged: ((value) => setState(() {
+                              selectedSeat = value;
+                            })),
                         size: size,
                         rowvalue: widget.rowvalue,
                         columnvalue: widget.columnvalue),

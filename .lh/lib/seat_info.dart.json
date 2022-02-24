@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/seat_info.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1645688311466,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1645688311466,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\r\n\r\nclass SeatInfo extends StatelessWidget {\r\n  const SeatInfo({\r\n    Key? key,\r\n  }) : super(key: key);\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return Row(\r\n      mainAxisAlignment: MainAxisAlignment.spaceEvenly,\r\n      children: [\r\n        Row(\r\n          children: [\r\n            Container(\r\n              height: 15,\r\n              width: 15,\r\n              margin: EdgeInsets.only(right: 8),\r\n              decoration: BoxDecoration(\r\n                borderRadius: BorderRadius.circular(10),\r\n                border: Border.all(color: Colors.white.withOpacity(0.5)),\r\n              ),\r\n            ),\r\n            Text(\r\n              'Available ',\r\n              style: TextStyle(\r\n                decoration: TextDecoration.none,\r\n                fontSize: 12,\r\n                color: Colors.white.withOpacity(0.5),\r\n              ),\r\n            )\r\n          ],\r\n        ),\r\n        Row(\r\n          children: [\r\n            Container(\r\n              height: 15,\r\n              width: 15,\r\n              margin: EdgeInsets.only(right: 8),\r\n              decoration: BoxDecoration(\r\n                borderRadius: BorderRadius.circular(10),\r\n                color: Colors.grey,\r\n              ),\r\n            ),\r\n            Text(\r\n              'Reserved',\r\n              style: TextStyle(\r\n                decoration: TextDecoration.none,\r\n                fontSize: 12,\r\n                color: Colors.grey,\r\n              ),\r\n            )\r\n          ],\r\n        ),\r\n        Row(\r\n          children: [\r\n            Container(\r\n              height: 15,\r\n              width: 15,\r\n              margin: EdgeInsets.only(right: 8),\r\n              decoration: BoxDecoration(\r\n                borderRadius: BorderRadius.circular(10),\r\n                color: Colors.green[400],\r\n              ),\r\n            ),\r\n            Text(\r\n              'Selected',\r\n              style: TextStyle(\r\n                decoration: TextDecoration.none,\r\n                fontSize: 12,\r\n                color: Colors.green[400],\r\n              ),\r\n            )\r\n          ],\r\n        ),\r\n      ],\r\n    );\r\n  }\r\n}\r\n"
+        }
+    ]
+}

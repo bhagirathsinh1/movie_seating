@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 51,
+            "activePatchIndex": 71,
             "patches": [
                 {
                     "date": 1645441169287,
@@ -212,6 +212,86 @@
                 {
                     "date": 1645621743424,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         child: Stack(\r\n           alignment: Alignment.center,\r\n           children: [\r\n             Container(\r\n-              color: Colors.white,\r\n+              color: Colors.black,\r\n               width: size.width,\r\n             ),\r\n             Positioned(\r\n               top: 55,\r\n"
+                },
+                {
+                    "date": 1645678989809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n                       border: Border(\r\n                         top: BorderSide(width: 4.0, color: Colors.white),\r\n                       ),\r\n                     ),\r\n-                  )\r\n+                  ),\r\n                 ],\r\n               ),\r\n             ),\r\n             Positioned(\r\n"
+                },
+                {
+                    "date": 1645680122211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,10 +27,12 @@\n         child: Stack(\r\n           alignment: Alignment.center,\r\n           children: [\r\n             Container(\r\n+              alignment: Alignment.topLeft,\r\n               color: Colors.black,\r\n               width: size.width,\r\n+              child: Text('bhagirthsinh'),\r\n             ),\r\n             Positioned(\r\n               top: 55,\r\n               child: Stack(\r\n"
+                },
+                {
+                    "date": 1645680135994,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n           alignment: Alignment.center,\r\n           children: [\r\n             Container(\r\n               alignment: Alignment.topLeft,\r\n-              color: Colors.black,\r\n+              color: Colors.white,\r\n               width: size.width,\r\n               child: Text('bhagirthsinh'),\r\n             ),\r\n             Positioned(\r\n"
+                },
+                {
+                    "date": 1645680217067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,11 +28,14 @@\n           alignment: Alignment.center,\r\n           children: [\r\n             Container(\r\n               alignment: Alignment.topLeft,\r\n-              color: Colors.white,\r\n+              color: Colors.black,\r\n               width: size.width,\r\n-              child: Text('bhagirthsinh'),\r\n+              child: Text(\r\n+                'bhagirthsinh',\r\n+                style: TextStyle(color: Colors.white),\r\n+              ),\r\n             ),\r\n             Positioned(\r\n               top: 55,\r\n               child: Stack(\r\n"
+                },
+                {
+                    "date": 1645680286291,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,11 +30,26 @@\n             Container(\r\n               alignment: Alignment.topLeft,\r\n               color: Colors.black,\r\n               width: size.width,\r\n-              child: Text(\r\n-                'bhagirthsinh',\r\n-                style: TextStyle(color: Colors.white),\r\n+              child: Padding(\r\n+                padding: const EdgeInsets.only(left: 10),\r\n+                child: Column(\r\n+                  children: [\r\n+                    Text(\r\n+                      'bhagirthsinh',\r\n+                      style: TextStyle(color: Colors.white),\r\n+                    ),\r\n+                    Text(\r\n+                      'bhagirthsinh',\r\n+                      style: TextStyle(color: Colors.white),\r\n+                    ),\r\n+                    Text(\r\n+                      'bhagirthsinh',\r\n+                      style: TextStyle(color: Colors.white),\r\n+                    ),\r\n+                  ],\r\n+                ),\r\n               ),\r\n             ),\r\n             Positioned(\r\n               top: 55,\r\n"
+                },
+                {
+                    "date": 1645680342684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,17 +35,17 @@\n                 padding: const EdgeInsets.only(left: 10),\r\n                 child: Column(\r\n                   children: [\r\n                     Text(\r\n-                      'bhagirthsinh',\r\n+                      'Available : ',\r\n                       style: TextStyle(color: Colors.white),\r\n                     ),\r\n                     Text(\r\n-                      'bhagirthsinh',\r\n+                      'Selected : ',\r\n                       style: TextStyle(color: Colors.white),\r\n                     ),\r\n                     Text(\r\n-                      'bhagirthsinh',\r\n+                      'Reserved : ',\r\n                       style: TextStyle(color: Colors.white),\r\n                     ),\r\n                   ],\r\n                 ),\r\n"
+                },
+                {
+                    "date": 1645680378091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,17 +36,17 @@\n                 child: Column(\r\n                   children: [\r\n                     Text(\r\n                       'Available : ',\r\n-                      style: TextStyle(color: Colors.white),\r\n+                      style: TextStyle(color: Colors.white.withOpacity(0.6)),\r\n                     ),\r\n                     Text(\r\n                       'Selected : ',\r\n-                      style: TextStyle(color: Colors.white),\r\n+                      style: TextStyle(color: Colors.white.withOpacity(0.6)),\r\n                     ),\r\n                     Text(\r\n                       'Reserved : ',\r\n-                      style: TextStyle(color: Colors.white),\r\n+                      style: TextStyle(color: Colors.white.withOpacity(0.6)),\r\n                     ),\r\n                   ],\r\n                 ),\r\n               ),\r\n"
+                },
+                {
+                    "date": 1645680396971,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                       'Available : ',\r\n                       style: TextStyle(color: Colors.white.withOpacity(0.6)),\r\n                     ),\r\n                     Text(\r\n-                      'Selected : ',\r\n+                      'Selected  : ',\r\n                       style: TextStyle(color: Colors.white.withOpacity(0.6)),\r\n                     ),\r\n                     Text(\r\n                       'Reserved : ',\r\n"
+                },
+                {
+                    "date": 1645680433973,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,17 +36,17 @@\n                 child: Column(\r\n                   children: [\r\n                     Text(\r\n                       'Available : ',\r\n-                      style: TextStyle(color: Colors.white.withOpacity(0.6)),\r\n+                      style: TextStyle(color: Colors.white.withOpacity(0.5)),\r\n                     ),\r\n                     Text(\r\n                       'Selected  : ',\r\n-                      style: TextStyle(color: Colors.white.withOpacity(0.6)),\r\n+                      style: TextStyle(color: Colors.white.withOpacity(0.5)),\r\n                     ),\r\n                     Text(\r\n                       'Reserved : ',\r\n-                      style: TextStyle(color: Colors.white.withOpacity(0.6)),\r\n+                      style: TextStyle(color: Colors.white.withOpacity(0.5)),\r\n                     ),\r\n                   ],\r\n                 ),\r\n               ),\r\n"
+                },
+                {
+                    "date": 1645680623473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,11 @@\n \r\n class _SeatSelectorState extends State<SeatSelector> {\r\n   @override\r\n   Widget build(BuildContext context) {\r\n+    int availableSeat = widget.rowvalue * widget.columnvalue;\r\n+    int selectedSeat = 0;\r\n+    int reservedSeat = 0;\r\n     Size size = MediaQuery.of(context).size;\r\n     return Scaffold(\r\n       appBar: AppBar(\r\n         title: Text(\r\n"
+                },
+                {
+                    "date": 1645680695561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,17 +38,17 @@\n                 padding: const EdgeInsets.only(left: 10),\r\n                 child: Column(\r\n                   children: [\r\n                     Text(\r\n-                      'Available : ',\r\n+                      'Available : $availableSeat',\r\n                       style: TextStyle(color: Colors.white.withOpacity(0.5)),\r\n                     ),\r\n                     Text(\r\n-                      'Selected  : ',\r\n+                      'Selected  : $selectedSeat',\r\n                       style: TextStyle(color: Colors.white.withOpacity(0.5)),\r\n                     ),\r\n                     Text(\r\n-                      'Reserved : ',\r\n+                      'Reserved : $reservedSeat',\r\n                       style: TextStyle(color: Colors.white.withOpacity(0.5)),\r\n                     ),\r\n                   ],\r\n                 ),\r\n"
+                },
+                {
+                    "date": 1645680803521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,12 +13,18 @@\n }\r\n \r\n class _SeatSelectorState extends State<SeatSelector> {\r\n   @override\r\n+  void initState() {\r\n+    super.initState();\r\n+    int availableSeat = widget.rowvalue * widget.columnvalue;\r\n+  }\r\n+\r\n+  late int availableSeat;\r\n+  int selectedSeat = 0;\r\n+  int reservedSeat = 0;\r\n+  @override\r\n   Widget build(BuildContext context) {\r\n-    int availableSeat = widget.rowvalue * widget.columnvalue;\r\n-    int selectedSeat = 0;\r\n-    int reservedSeat = 0;\r\n     Size size = MediaQuery.of(context).size;\r\n     return Scaffold(\r\n       appBar: AppBar(\r\n         title: Text(\r\n"
+                },
+                {
+                    "date": 1645680839991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     super.initState();\r\n     int availableSeat = widget.rowvalue * widget.columnvalue;\r\n   }\r\n \r\n-  late int availableSeat;\r\n+  int availableSeat = 0;\r\n   int selectedSeat = 0;\r\n   int reservedSeat = 0;\r\n   @override\r\n   Widget build(BuildContext context) {\r\n"
+                },
+                {
+                    "date": 1645680893123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,11 @@\n class _SeatSelectorState extends State<SeatSelector> {\r\n   @override\r\n   void initState() {\r\n     super.initState();\r\n-    int availableSeat = widget.rowvalue * widget.columnvalue;\r\n+    setState(() {\r\n+      int availableSeat = widget.rowvalue * widget.columnvalue;\r\n+    });\r\n   }\r\n \r\n   int availableSeat = 0;\r\n   int selectedSeat = 0;\r\n"
+                },
+                {
+                    "date": 1645680915454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,11 @@\n class _SeatSelectorState extends State<SeatSelector> {\r\n   @override\r\n   void initState() {\r\n     super.initState();\r\n-    setState(() {\r\n-      int availableSeat = widget.rowvalue * widget.columnvalue;\r\n-    });\r\n+    // setState(() {\r\n+    availableSeat = widget.rowvalue * widget.columnvalue;\r\n+    // });\r\n   }\r\n \r\n   int availableSeat = 0;\r\n   int selectedSeat = 0;\r\n"
+                },
+                {
+                    "date": 1645680961840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,8 +44,9 @@\n               width: size.width,\r\n               child: Padding(\r\n                 padding: const EdgeInsets.only(left: 10),\r\n                 child: Column(\r\n+                  crossAxisAlignment: CrossAxisAlignment.start,\r\n                   children: [\r\n                     Text(\r\n                       'Available : $availableSeat',\r\n                       style: TextStyle(color: Colors.white.withOpacity(0.5)),\r\n"
+                },
+                {
+                    "date": 1645682533209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,8 +102,11 @@\n                 width: size.width * 0.90,\r\n                 child: Column(\r\n                   children: [\r\n                     ChairList(\r\n+                        onAvailableSeatChanged: ((value) => setState(() {})),\r\n+                        onReservedSeatChanged: ((value) => setState(() {})),\r\n+                        onSelectedSeatChanged: ((value) => setState(() {})),\r\n                         size: size,\r\n                         rowvalue: widget.rowvalue,\r\n                         columnvalue: widget.columnvalue),\r\n                     SizedBox(height: 10),\r\n"
+                },
+                {
+                    "date": 1645682587746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,9 +102,9 @@\n                 width: size.width * 0.90,\r\n                 child: Column(\r\n                   children: [\r\n                     ChairList(\r\n-                        onAvailableSeatChanged: ((value) => setState(() {})),\r\n+                        onAvailableSeatChanged: ((value) => setState(() {availableSeat=value})),\r\n                         onReservedSeatChanged: ((value) => setState(() {})),\r\n                         onSelectedSeatChanged: ((value) => setState(() {})),\r\n                         size: size,\r\n                         rowvalue: widget.rowvalue,\r\n"
+                },
+                {
+                    "date": 1645682640719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,11 +102,17 @@\n                 width: size.width * 0.90,\r\n                 child: Column(\r\n                   children: [\r\n                     ChairList(\r\n-                        onAvailableSeatChanged: ((value) => setState(() {availableSeat=value})),\r\n-                        onReservedSeatChanged: ((value) => setState(() {})),\r\n-                        onSelectedSeatChanged: ((value) => setState(() {})),\r\n+                        onAvailableSeatChanged: ((value) => setState(() {\r\n+                              availableSeat = value;\r\n+                            })),\r\n+                        onReservedSeatChanged: ((value) => setState(() {\r\n+                              reservedSeat = value;\r\n+                            })),\r\n+                        onSelectedSeatChanged: ((value) => setState(() {\r\n+                              selectedSeat = value;\r\n+                            })),\r\n                         size: size,\r\n                         rowvalue: widget.rowvalue,\r\n                         columnvalue: widget.columnvalue),\r\n                     SizedBox(height: 10),\r\n"
+                },
+                {
+                    "date": 1645686154749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,8 +102,11 @@\n                 width: size.width * 0.90,\r\n                 child: Column(\r\n                   children: [\r\n                     ChairList(\r\n+                        availableSeat: availableSeat,\r\n+                        reservedSeat: reservedSeat,\r\n+                        selectedSeat: selectedSeat,\r\n                         onAvailableSeatChanged: ((value) => setState(() {\r\n                               availableSeat = value;\r\n                             })),\r\n                         onReservedSeatChanged: ((value) => setState(() {\r\n"
                 }
             ],
             "date": 1645441169287,

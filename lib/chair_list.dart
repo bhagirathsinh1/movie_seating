@@ -1,14 +1,29 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:movie_seating/build_chairs.dart';
 
 class ChairList extends StatefulWidget {
   int rowvalue;
   int columnvalue;
+
+  final ValueChanged<int> onAvailableSeatChanged;
+  final ValueChanged<int> onSelectedSeatChanged;
+  final ValueChanged<int> onReservedSeatChanged;
+  int availableSeat;
+  int selectedSeat;
+  int reservedSeat;
   ChairList({
     Key? key,
     required this.size,
     required this.rowvalue,
     required this.columnvalue,
+    required this.onAvailableSeatChanged,
+    required this.onSelectedSeatChanged,
+    required this.onReservedSeatChanged,
+    required this.availableSeat,
+    required this.selectedSeat,
+    required this.reservedSeat,
   });
 
   final Size size;
@@ -56,24 +71,39 @@ class _ChairListState extends State<ChairList> {
                   children: [
                     for (int column = 0; column < widget.columnvalue; column++)
                       InkWell(
+                        onLongPress: () {},
                         onTap: () {
                           if (_chairStatus[row][column] == 1) {
                             setState(() {
                               _chairStatus[row][column] = 2;
                               print('------$_chairStatus--------');
+                              widget.onSelectedSeatChanged(
+                                  widget.selectedSeat + 1);
+                              widget.onAvailableSeatChanged(
+                                  widget.availableSeat - 1);
                             });
                           } else if (_chairStatus[row][column] == 2) {
                             setState(() {
                               _chairStatus[row][column] = 3;
                               print('------$_chairStatus--------');
+                              widget.onSelectedSeatChanged(
+                                  widget.selectedSeat - 1);
+                              widget.onReservedSeatChanged(
+                                  widget.reservedSeat + 1);
                             });
-                            Scaffold.of(context).showSnackBar(new SnackBar(
-                                content: new Text('Seat Reserved')));
+                            ScaffoldMessenger.of(context)
+                              ..hideCurrentSnackBar()
+                              ..showSnackBar(new SnackBar(
+                                  content: new Text('Seat Reserved')));
                           } else {
                             setState(
                               () {
                                 _chairStatus[row][column] = 1;
                                 print('------$_chairStatus--------');
+                                widget.onAvailableSeatChanged(
+                                    widget.availableSeat + 1);
+                                widget.onReservedSeatChanged(
+                                    widget.reservedSeat - 1);
                               },
                             );
                           }

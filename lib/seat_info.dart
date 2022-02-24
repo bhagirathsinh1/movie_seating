@@ -22,7 +22,7 @@ class SeatInfo extends StatelessWidget {
               ),
             ),
             Text(
-              'Available',
+              'Available ',
               style: TextStyle(
                 decoration: TextDecoration.none,
                 fontSize: 12,
